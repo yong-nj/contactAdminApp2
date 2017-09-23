@@ -1,0 +1,54 @@
+﻿<form>
+    <div class='panel-heading'>Contact Managemnt Util</div>
+
+    <div class='table-responsive'>
+        <table class='table' *ngIf='contacts'>
+            <thead>
+                <tr>
+                    <th>
+                        First Name
+                    </th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Birth Date</th>
+                    <th>Profile picture</th>
+                    <th>List of groups</th>
+                    <th>Comments</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="contact in contacts">
+
+                    <td>{{ contact.firstName }}</td>
+                    <td>{{ contact.lastName }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.phone}}</td>
+                    <td>{{ contact.birthDate}}</td>
+                    <td>
+                        <img [src]='contact.profilePictureUrl'
+                             [title]='contact.firstName' />
+                             <!--[style.width.px]='imageWidth'
+                             [style.margin.px]='imageMargin'>-->
+                    </td>
+                    <td>
+                        {{ contact.listofGroup}}
+                    </td>
+                    <td>
+                        {{ contact.comments}}
+                    </td>
+                    <td>
+                        <img src="/app/ContactForm/images/pencil.png"
+                             title="edit contact" ng-click="editContactForm(123)">
+                        <img src="/app/ContactForm/images/del2.png"
+                             title="delete contact">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <img src="/app/ContactForm/images/add.png" title="add contact" style="float:right; padding-right:30px;"
+             ng-click="addContactForm()">
+    </div> 
+
+</form>
