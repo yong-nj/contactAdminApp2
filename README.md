@@ -1,2 +1,3 @@
-# contactAdminApp2
-Contacts Management Utility
+ A single page contact management web application using C#, MVC, Angular.js, Bootstrap, and SQL Server.
+ 
+ Yong Huang
