@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+<html ng-app="contactAdminApp2">
+<head>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/bundles/mini-spa/style")
+    @Scripts.Render("~/bundles/mini-spa/script")
+</head>
+
+<body class="container">
+    <br /><!-- **** default starting .NET MVC view******-->
+    <div ng-view></div>
+</body>
+</html>
