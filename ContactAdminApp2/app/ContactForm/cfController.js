@@ -20,16 +20,14 @@
             $scope.contact = { id: -1 };
         };
 
-
-       
-
+            
         $scope.cancelForm = function () {
             $window.history.back();
         }
 
         $scope.submitForm = function () {
             $scope.$broadcast('show-errors-event');
-            //  if ($scope.contactForm.$invalid)    return;
+            if ($scope.cfContactForm.$invalid) return;
 
             //today date
             var today = new Date();
@@ -39,7 +37,7 @@
             //end today date
             if ($scope.editableContact.birthDate == undefined) $scope.editableContact.birthDate = yyyy + '-' + mm + '-' + dd;
 
-            if ($scope.editableContact.id == undefined) {              
+            if ($scope.editableContact.id == undefined) {
                 DataService.insertContact($scope.editableContact).then(
                     function (results) {
                         // on success
@@ -61,11 +59,11 @@
                 } else {
                     // txt = "You pressed Cancel!";
                 }
-            
-              
-               
+                
             }
-           
-        }
+
+        };
+
+        //calendar
 
     }]);

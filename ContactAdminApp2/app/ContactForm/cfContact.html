@@ -2,73 +2,93 @@
     <fieldset>
         <legend>Contact Information</legend>
         <div class="form-group" show-errors>
-            <label for="fullName" class="col-sm-3 control-label">First Name</label>
+            <label for="fullName" class="col-sm-3 control-label">First Name<span style="color:red">*</span></label>
             <div class="col-sm-9">
                 <input type="text" id="firstName" name="firstName" class="form-control"
                        ng-model="editableContact.firstName" ng-required="true" />
             </div>
-            <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+            <label for="lastName" class="col-sm-3 control-label">Last Name<span style="color:red">*</span></label>
             <div class="col-sm-9">
                 <input type="text" id="lastName" name="lastName" class="form-control"
                        ng-model="editableContact.lastName" ng-required="true" />
             </div>
-            <label for="email" class="col-sm-3 control-label">Email</label>
+            <label for="email" class="col-sm-3 control-label">Email<span style="color:red">*</span></label>
             <div class="col-sm-9">
                 <input type="email" id="email" name="email" class="form-control"
                        ng-model="editableContact.email" ng-required="true" />
             </div>
-            <label for="phone" class="col-sm-3 control-label">Phone</label>
-            <div class="col-sm-9">
-                <input type="text" id="phone" name="phone" class="form-control"
-                       ng-model="editableContact.phone" ng-required="false" />
-            </div>
 
-            <label for="birthDate" class="col-sm-3 control-label">Birth Date</label>
-            <div class="col-sm-9">
-                
-                <!--<input type="text" id="birthDate" name="birthDate" class="form-control"
-                       ng-model="editableContact.birthDate" ng-required="false" />-->
-                <!--<datepicker name="birthDate" ng-model="editableContact.birthDate">
-                </datepicker>-->
-                <!--<datepicker></datepicker>-->
-                
-                <div style="display:inline-block; min-height:290px;">
-                   <div uib-datepicker ng-model="editableContact.birthDate" class="well well-sm" datepicker-options="options" ng-model-options="{ timezone: 'UTC' }" ng-required="false">
-                   </div>
+            
+                <label for="phone" class="col-sm-3 control-label">Phone</label>
+                <div class="col-sm-9">
+                    <!--<input type="text" id="phone" name="phone" class="form-control"
+                   ng-model="editableContact.phone" ng-required="false" />-->
+                    <input type="text" class="form-control"                                        
+                           id="phone"
+                           name="phone"
+                           ng-minlength = "10"
+                           ng-maxlength = "10"
+                           ng-pattern="/^[0-9]{10,10}$/"
+                           placeholder="1234567890"
+                           ng-model="editableContact.phone"
+                            />  
+                    
+                 
+                    <p ng-show="((cfContactForm.phone.$error.minlength ||
+                        cfContactForm.phone.$error.maxlength || cfContactForm.phone.$error.pattern)
+                        && cfContactForm.phone.$dirty)">
+                        <span style="color:red">Phone number should be 10 digits</span>
+                    </p><br><br>
+                                   
                 </div>
-
               
 
-             </div>   
+                <label for="birthDate" class="col-sm-3 control-label">Birth Date</label>
+                <div class="col-sm-9">
 
-            <label for="profilePicture" class="col-sm-3 control-label">Profile Picture</label>
-            <div class="col-sm-9">
-                <input type="text" id="profilePictureUrl" name="profilePictureUrl" class="form-control"
-                       ng-model="editableContact.profilePictureUrl" ng-required="false" />
-            </div>
+                    <!--<input type="text" id="birthDate" name="birthDate" class="form-control"
+                   ng-model="editableContact.birthDate" ng-required="false" />-->
+                    <!--<datepicker name="birthDate" ng-model="editableContact.birthDate">
+            </datepicker>-->
+                    <!--<datepicker></datepicker>-->
 
-            <label for="listofGroups" class="col-sm-3 control-label">List of groups</label>
-            <div class="col-sm-9">
-                <div class="checkbox">
-                    <label><input type="checkbox" value="Family" ng-model="editableContact.isFamily" />Family</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="Friend" ng-model="editableContact.isFriend" />Friend</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="Colleague" ng-model="editableContact.isColleague" />Colleague</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" value="Associate" ng-model="editableContact.isAssociate" />Associate</label>
-                </div>
-            </div>
-            <label for="comments" class="col-sm-3 control-label">Comments</label>
-            <div class="col-sm-9">
-                <textarea id="comments" name="comments" class="form-control" rows="3" cols="40"
-                       ng-model="editableContact.comments" ng-required="false"></textarea>
-            </div>
+                    <div style="display:inline-block; min-height:290px;">
+                        <div uib-datepicker ng-model="editableContact.birthDate" class="well well-sm" datepicker-options="options" ng-model-options="{ timezone: 'UTC' }" ng-required="false">
+                        </div>
+                    </div>
 
-         </div>
+                   
+
+                </div>
+
+                <label for="profilePicture" class="col-sm-3 control-label">Profile Picture</label>
+                <div class="col-sm-9">
+                    <input type="text" id="profilePictureUrl" name="profilePictureUrl" class="form-control"
+                           ng-model="editableContact.profilePictureUrl" ng-required="false" />
+                </div>
+
+                <label for="listofGroups" class="col-sm-3 control-label">List of groups</label>
+                <div class="col-sm-9">
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="Family" ng-model="editableContact.isFamily" />Family</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="Friend" ng-model="editableContact.isFriend" />Friend</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="Colleague" ng-model="editableContact.isColleague" />Colleague</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="Associate" ng-model="editableContact.isAssociate" />Associate</label>
+                    </div>
+                </div>
+                <label for="comments" class="col-sm-3 control-label">Comments</label>
+                <div class="col-sm-9">
+                    <textarea id="comments" name="comments" class="form-control" rows="3" cols="40"
+                              ng-model="editableContact.comments" ng-required="false"></textarea>
+                </div>
+
+            </div>
         </fieldset>
                 
 

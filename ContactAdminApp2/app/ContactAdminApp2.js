@@ -20,12 +20,12 @@ contactAdminApp2.config(["$routeProvider", "$locationProvider",
                 redirectTo: "/home"
             });
       
-        // $locationprovider.html5Mode(false);
+        //// $locationprovider.html5Mode(false);
 
-        //$locationProvider.html5Mode({
-        //    enabled: true,
-        //    requireBase: false
-        //});
+        ////$locationProvider.html5Mode({
+        ////    enabled: true,
+        ////    requireBase: false
+        ////});
 
     }]);
 

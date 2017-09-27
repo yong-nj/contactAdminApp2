@@ -6,10 +6,14 @@
                return $http.get("Contact/GetContacts");
            };
 
+           //  searchContacts is never used
+           var searchContacts = function (searchText) {
+               return $http.get("Contact/SearchContacts/" + searchText);
+           };
+           // end searchContacts is never used
+
            var getContact = function (id) {
-               //return $http.get("Contact/GetContacts/" + id).then(function (result) {                   
-               //    return result.data;
-               //});       
+                 
                return $http.get("Contact/GetContacts/" + id);
            };
 
@@ -25,7 +29,7 @@
         var deleteContact = function (id) {
             return $http.post("Contact/Delete", { id: id });
 
-          //  $http.post("@Url.Action("Delete", "MyController")", { id : id } , function (data) {} );
+         
 
         };
 
@@ -34,7 +38,8 @@
            updateContact: updateContact,
            deleteContact: deleteContact,
            getContact: getContact,
-           getContacts: getContacts
+           getContacts: getContacts,
+           searchContacts:searchContacts
        };
 
     }]);
