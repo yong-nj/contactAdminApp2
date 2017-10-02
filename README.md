@@ -1,6 +1,6 @@
  A single page contact management web application using C#, MVC, Angular.js, Bootstrap, and SQL Server.
  
- A very simple sql database ( 1 table: contacts) is required to run this application. sql script for creating the table is as below:
+ A simple sql database and a few stored procedules is required to run this application. sql script for creating the table is as below:
   
  CREATE TABLE [dbo].[Contacts](
                         [Id] [int] IDENTITY(1,1) NOT NULL,
