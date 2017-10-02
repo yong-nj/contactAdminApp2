@@ -1,5 +1,5 @@
- A single page contact management web application using C#, MVC, Angular.js, Bootstrap, and SQL Server. features incude 
- pagination, calendar, responsive design, data validation, search function and log function.
+ Single page contact management web application using C#, MVC, Angular.js, Bootstrap, and SQL Server.
+ Features incude: pagination, calendar, responsive design, data validation, search function and log function.
 
  
  A simple sql database ( including a few stored procedules) is required to run this application. sql script for creating the table is as below:
